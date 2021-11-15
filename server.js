@@ -37,11 +37,6 @@ async function run() {
       res.json(result);
     });
 
-    app.post("/appointments", async (req, res) => {
-      const appointment = req.body;
-      const result = await servicesCollection.insertOne(appointment);
-      res.json(result);
-    });
     // add Service by admin
     app.post("/addServices", async (req, res) => {
       console.log(req.body);
@@ -140,7 +135,7 @@ async function run() {
 run().catch(console.dir);
 
 app.get("/", (req, res) => {
-  res.send("Hello Doctors portal!");
+  res.send("Hello RIDERIOT!");
 });
 
 app.listen(port, () => {
