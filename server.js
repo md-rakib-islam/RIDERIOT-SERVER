@@ -36,6 +36,15 @@ async function run() {
       const result = await cursor.toArray();
       res.json(result);
     });
+    // Delete order from user
+    app.delete("/myOrders/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: ObjectId(id) };
+      console.log("delete", id);
+      const result = await ordersCollection.deleteOne(query);
+
+      res.json(result);
+    });
 
     // add Service by admin
     app.post("/addServices", async (req, res) => {
